@@ -12,7 +12,11 @@
 LICENSE = "CLOSED"
 LIC_FILES_CHKSUM = ""
 inherit pkgconfig
-DEPENDS = "libgpiod (<2.0)"
+inherit update-rc.d
+INITSCRIPT_PACKAGES = "$PN"
+INITSCRIPT_PARAMS = "defaults"
+INITSCRIPT_NAME = "esme-led"
+DEPENDS += "libgpiod (<2.0)"
 
 
 # No information for SRC_URI yet (only an external source tree was specified)
