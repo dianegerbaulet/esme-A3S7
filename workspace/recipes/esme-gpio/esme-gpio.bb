@@ -20,7 +20,7 @@ DEPENDS += "libgpiod (<2.0)"
 
 
 # No information for SRC_URI yet (only an external source tree was specified)
-SRC_URI = ""
+SRC_URI = "git@github.com:dianegerbaulet/gpio-toggle.git;protocol=ssh"
 
 
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the
