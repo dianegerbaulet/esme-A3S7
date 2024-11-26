@@ -20,7 +20,15 @@ DEPENDS += "libgpiod (<2.0)"
 
 
 # No information for SRC_URI yet (only an external source tree was specified)
-SRC_URI = "git@github.com:dianegerbaulet/gpio-toggle.git;protocol=ssh"
+SRC_URI = "https://github.com/dianegerbaulet/gpio-toggle.git \
+           file://0006-Makefile-modification.patch \
+           file://0004-initial-esme-led-startup-script.patch \
+           file://0002-initial-version-of-esme-led-startup-script.patch \
+           file://0007-initial-version-of-gpio-program.patch \
+           file://0003-install-esme-led-startup-script.patch \
+           file://0001-initial-version-of-gpio-program.patch \
+           file://0005-Makefile-and-gpiod-modification.patch \
+           "
 
 
 # NOTE: this is a Makefile-only piece of software, so we cannot generate much of the

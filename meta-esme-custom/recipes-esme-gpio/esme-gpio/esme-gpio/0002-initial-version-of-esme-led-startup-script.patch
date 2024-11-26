@@ -1,0 +1,89 @@
+From 26942303426f98f9999eddba166a66fae7a853b2 Mon Sep 17 00:00:00 2001
+From: Diane Gerbaulet <dianegerbaulet@esme.fr>
+Date: Tue, 19 Nov 2024 11:44:04 +0100
+Subject: [PATCH] initial version of esme-led startup script
+
+---
+ esme-led | 73 ++++++++++++++++++++++++++++++++++++++++++++++++++++++++
+ 1 file changed, 73 insertions(+)
+ create mode 100755 esme-led
+
+diff --git a/esme-led b/esme-led
+new file mode 100755
+index 0000000..3610faf
+--- /dev/null
++++ b/esme-led
+@@ -0,0 +1,73 @@
++### END INIT INFO
++#!/bin/sh
++### BEGIN INIT INFO
++# Provides: esme-led
++# Required-Start: $remote_fs $time
++# Required-Stop: $remote_fs $time
++# Default-Start: 3 4 5
++# Default-Stop: 0 1 2 6
++# Short-Description: ESME LED GPIO#17 toggle service
++### END INIT INFO
++
++#include <stdio.h>
++#include <stdlib.h>
++
++# Nom du programme
++PROGRAM="/usr/bin/gpio"
++NAME="esme-led"
++
++# Fonction pour démarrer le service
++start() {
++    echo "Starting $NAME..."
++    start-stop-daemon --start --background --exec $PROGRAM || {
++        echo "Failed to start $NAME."
++        exit 1
++    }
++    echo "$NAME started."
++}
++
++
++# Fonction pour arrêter le service
++stop() {
++    echo "Stopping $NAME..."
++    start-stop-daemon --stop --exec $PROGRAM || {
++        echo "$NAME is not running."
++        exit 1
++    }
++    echo "$NAME stopped."
++}
++
++# Fonction pour redémarrer le service
++restart() {
++    stop //stop function called
++    start //start function called
++}
++
++# Fonction pour afficher le statut du service
++status() {
++    if pidof $PROGRAM > /dev/null; then
++        echo "Status of $NAME: running with PID=$(pidof $PROGRAM)"
++    else
++        echo "Status of $NAME: stopped"
++    fi
++}
++
++# Analyse de l'argument
++case "$1" in
++    start)
++        start
++        ;;
++    stop)
++        stop
++        ;;
++    restart)
++        restart
++        ;;
++    status)
++        status
++        ;;
++    *)
++        echo "Usage: $NAME (start | stop | restart | status)"
++        exit 1
++        ;;
++esac

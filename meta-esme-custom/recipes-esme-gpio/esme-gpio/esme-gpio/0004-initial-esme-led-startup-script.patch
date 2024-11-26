@@ -1,0 +1,22 @@
+From 5b6df69fd46d56f7b6fab4ab809aedfd8ce6c7d3 Mon Sep 17 00:00:00 2001
+From: Diane Gerbaulet <dianegerbaulet@esme.fr>
+Date: Wed, 20 Nov 2024 14:05:32 +0100
+Subject: [PATCH] initial esme-led startup script
+
+---
+ esme-led | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/esme-led b/esme-led
+index 3610faf..2657df6 100755
+--- a/esme-led
++++ b/esme-led
+@@ -13,7 +13,7 @@
+ #include <stdlib.h>
+ 
+ # Nom du programme
+-PROGRAM="/usr/bin/gpio"
++PROGRAM="/usr/bin/gpiod"
+ NAME="esme-led"
+ 
+ # Fonction pour démarrer le service

@@ -1,0 +1,162 @@
+From a23d56c34a2b41d9eb2b917fce2d9aabb2cd397d Mon Sep 17 00:00:00 2001
+From: Diane Gerbaulet <dianegerbaulet@esme.fr>
+Date: Wed, 20 Nov 2024 15:04:26 +0100
+Subject: [PATCH] Makefile and gpiod modification
+
+---
+ .install/usr/bin/gpiod   | Bin 0 -> 16312 bytes
+ Makefile                 |  12 +++++-------
+ gpiod                    | Bin 16320 -> 16312 bytes
+ gpio_toggle.c => gpiod.c |   0
+ gpiod.o                  | Bin 0 -> 2752 bytes
+ 5 files changed, 5 insertions(+), 7 deletions(-)
+ create mode 100755 .install/usr/bin/gpiod
+ rename gpio_toggle.c => gpiod.c (100%)
+ create mode 100644 gpiod.o
+
+diff --git a/.install/usr/bin/gpiod b/.install/usr/bin/gpiod
+new file mode 100755
+index 0000000000000000000000000000000000000000..3cf2f161518789aafa15d9325f72c444aaa9993b
+GIT binary patch
+literal 16312
+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
+
+literal 0
+HcmV?d00001
+
+diff --git a/Makefile b/Makefile
+index 57f360e..1a19bae 100644
+--- a/Makefile
++++ b/Makefile
+@@ -9,16 +9,14 @@ INSTALL_DIR ?= ./.install
+ all: gpiod
+ 
+ #compilation implicite de gpio_toggle.c en pgiod
+-gpiod: gpio_toggle.c
+-	$(CC) $(CFLAGS) -o gpiod gpio_toggle.c $(LDLIBS)
++gpiod: gpiod.o
+ 
+ #cible d'installation
+ install: gpiod
+-	mkdir -p $(INSTALL_DIR)
+-	cp gpiod $(INSTALL_DIR)
+-	cp esme-led /etc/init.d/esme-led 
+-	chmod 0755 /etc/init.d/esme-led 
+-
++	mkdir -p $(INSTALL_DIR)/usr/bin
++	cp gpiod $(INSTALL_DIR)/usr/bin
++	cp esme-led $(INSTALL_DIR)/etc/init.d/esme-led 
++	chmod 0755 esme-led $(INSTALL_DIR)/etc/init.d/esme-led 
+ 	
+ #cible clean pour supprimer les fichiers compilés
+ clean:
+diff --git a/gpiod b/gpiod
+index 71bb348d13044a08c45884db5d3888259b3f26d9..3cf2f161518789aafa15d9325f72c444aaa9993b 100755
+GIT binary patch
+delta 397
+zcmX?5zoUMF2GbAojaq)pBK#6&rU7kCbC*5c!n6KxoY>!q0fw7<nBV9!uAf|Ks4uyf
+zfq{XML7bt&7RW#X$0i>%6qmdS6k%kLV5qQ1k^(Z{PyWa(KDoh;W%3gv5yr~Nibmp+
+z8jK7K0t}K20uHEZ^(O}cWnF->LQH}T6NFJ^y+E>zv0$=%@<t%L1<al?`5{o(a-c3j
+zCP@YkG&8qM7Bm)TJPcNO8AM7x0oyLcAc3Z`c5<Pyxa3QyEV|piPF@H!=NH%<-pLn%
+zDixR@HlnN4napS+&gceG!x%By5Xdf`>}hg{F=exmsSfjI2MYyuU^pb&n{(bYgZNNt
+I@<U5`0N}1nmH+?%
+
+delta 393
+zcmdl{f1rMX1`~tDMlC;Pku#iT?gtqgqg;EV6b^}O3gC5`&9u3P`He2)*2$HI`jUqk
+z7#J8C#2G4Vfea*YX7WKpamo8Y5k>|Hh6;NmDIoLf<d4kaj6#zi8i_O3PgXP%m(*iq
+zU=U!CWDsybRcSgo5Gd;floetUWSAg~DjNWjWlRQ>wUajj*<E1vJdnwfYk|51nIsuF
+z(9GO5S<qOV@g!K~O%N&h3T(R+g9Mt&=E;S|;*#&7vgmI6J$WI}9EQmkfut~qlvHDa
+z*odyuXfmUTIHM0(W!z*#AiHw1r^zAq_>%ne^qkbqJf=F#o6Rhg*ny!DX>ZPWfAU0o
+FbpX}yOCtaP
+
+diff --git a/gpio_toggle.c b/gpiod.c
+similarity index 100%
+rename from gpio_toggle.c
+rename to gpiod.c
+diff --git a/gpiod.o b/gpiod.o
+new file mode 100644
+index 0000000000000000000000000000000000000000..5e38d85466291e76121ab0ac7b9c4d1b7008e47a
+GIT binary patch
+literal 2752
+zcmbtWO=w(I6h4#mM{DzA5v^3p15ItgyktriDjGt=B%>59#ege^mw7jnv2W&$@25?K
+zwu@kKh=GEFxGOGQbybQB4OLJ#;;Kt`LM2&5Tr`wId%kz?ncR7u+30~g=brC;=bZa<
+z-es<q&dv=K3M5jXY1*>{C7L;C&9mtY4bu?)J97NNLb?4{d2QP%Z|sMs-2UaB)}@{D
+z+T|TeU(9)Kqr%_&`M11Y+WFzx?x0-`+NE?X7X+%L)(L(_+<IyE`>fi=P^Q|y3+c1X
+zRrkppyW)N#-`1tI%iFX%k&C&G5<P=ZZ|e+#M!wn{x%CH#?Ylx<FKxH)=)HB$<u*dH
+z!}$?Mkj=K*zx_ls;j4=iwN^c>F4tR=H0RX=<vU5}ge}!{=Fh$JzQdlta@16!@u1#R
+zgwXLMtknXA8Wt~7pQI|bxXw}-IboW#(xi*#`8wZ4FGv-k<jZ5eGd}H%`G<(+XJ_AZ
+zPA)8_%_Mb-MR&@b951GsS-f)kv^zO<%D`Fuef&Gh106B{-U1B}Z2}wQ0eMa<DtvmL
+z3M-?9V}}nub)C=TCB`uzb2y{Y@aVOH*`Wi2Zx@)7;k|x9-ADgC>g5~k+0j@_)~{V5
+zPqTHz;%94MY?uf3lb7QR^uovb;BWN7-|d6@eeg?t@Gtt{U-rSX#_`=MHN1LL8x^!*
+z1${>?6-8lW!`yY1PQ&?{S`ETjcc7p7DyHQsrpeHo9Z#UVZgR{Sb<4G)dNWy~I8ds^
+z%gtoOXzrh^cOE{{@`Az9Q@BOJPZ?bJ&ltOCH24R22>+~w<B1deBZEtxSB$-6@$Ed3
+zg`-O)5AFjZdEU|{eQh+>gPs%qw+0u!tnWLEZ`ZwL;rx|$^4zg-dp&mzF8O0)|7r2<
+z{96`o=f7{^cK+w_A+lg!ID6UGs|J_48z8YvS^UFn3xC?e@vsZ-@En3X7#(rr)kfki
+zk{c(H*2^-BRN%RZT1m+Dy~HDTF^<WNLTyyTMng5(*9;To@>?|?Ctme}v1`rLZAJVs
+zM9C`0Ad_0IEJa>JbxQxAiNnFzD$d-N8Dq%%BR+F1V$w05;jCvmh@RX4$TDgU33q{5
+zc|niD$#Q}RaCw)3L9XQsY1n!hHSiiM<ovJk_%2bZ>n_>;+|<9pb6aHng5f;{by5JM
+zPnv{SpDnU2(P!8xbDQ@;enG~W=bmRA??#^fp#dBdCn~@GkJ*8o`S=wBye@%8=i||Z
+zz3%^}X(+j8+&|tKi5I+AZIrrc>Yp<k#<z(&`FP~a-#tT`%<7xW*!#(!AO8FGivQKD
+LKiLb-X8HKXyArSa
+
+literal 0
+HcmV?d00001
+
